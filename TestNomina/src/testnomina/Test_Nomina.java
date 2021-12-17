@@ -5,6 +5,7 @@
  */
 package testnomina;
 import Sleer2.SLeer2;
+import Sleer1.SLeer1;
 import Utilidades.Empresa;
 import Utilidades.Nomina;
 import Utilidades.Trabajador;
@@ -30,28 +31,20 @@ public class Test_Nomina {
         t1.setNIF("Introduce tu NIF: ");
         t1.setNUS("Intoduce tu NUS: ");
         t1.setGCot("Introduce tu Grupo de Cotización: ");
-        System.out.println(" \t- Datos del trabajador: ");
-        System.out.println("\t**Nombre : "+t1.getNom());
-        System.out.println("\t**NIF : "+t1.getNIF());
-        System.out.println("\t**NUS: "+t1.getNUS());
-        
-        /** Aquí irian los datos de la empresa **/
-        
+        e1.setNom("Introduce el nombre de la empresa: ");
+        e1.setCIF("Introduce el CIF de la empresa: ");
+        e1.setDom("Introduce el domicilio: ");
+        e1.setCCC("Introduce el CCC: ");
         n1.pideFecIn();
-        System.out.println("La fecha de inicio es: "+n1.getdiaIn()+"/"+n1.getMesIn()+"/"+n1.getAñoIn());
         n1.pideFecFin();
-        System.out.println("La fecha de finalización es: "+n1.getDiaFin()+"/"+n1.getMesFin()+"/"+n1.getAñoFin());
-       
-      
+        
         t1.getGCot();
         n1.calcSalarioBase(t1.getGCot());
-        n1.getSalarioBase();
         n1.pideComplemento();
         n1.getComplemento();
         
         System.out.println("Has introducido el complementos de horas extra.");
         n1.pideHorasEx("Introduce las horas extra: ");
-        n1.getHorasEx();
         n1.calcTDevengado();
         n1.calcCC();
         n1.calcDesempleo();
@@ -61,11 +54,25 @@ public class Test_Nomina {
         n1.calcIRPF();
         n1.calcTDeducir();
         n1.calcTPercibir();
-        
         n1.pideFechaFirma();
         n1.getFecFirma();
-        n1.getDevengado();
         
+        
+        System.out.println(" \t- Datos de la nomimna: ");
+        System.out.println("\n\t*****Nombre : "+t1.getNom());
+        System.out.println("\t*****NIF : "+t1.getNIF());
+        System.out.println("\t*****NUS: "+t1.getNUS());
+        System.out.println("\t*****Grupo de Cotización: "+t1.getGCot());
+        System.out.println("\t\n***Datos de la empresa****");
+        System.out.println("**Nombre de la empresa: "+e1.getNom());
+        
+        System.out.println("La fecha de inicio es: "+n1.getdiaIn()+"/"+n1.getMesIn()+"/"+n1.getAñoIn());
+        System.out.println("La fecha de finalización es: "+n1.getDiaFin()+"/"+n1.getMesFin()+"/"+n1.getAñoFin());
+        System.out.println("\n\tRemuneración de horas extra: "+n1.getHorasEx());
+        System.out.println("\n\tDías trabajados: "+n1.calcDias());
+        System.out.println("\n\tIRPF Descontado: "+n1.calcIRPF());
+        System.out.println("\t\nTotal devengado: "+n1.getDevengado());
+        System.out.println("\t\nBases de contingencias comunes: "+n1.CalcBCCC());
   
        
        
