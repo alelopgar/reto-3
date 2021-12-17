@@ -16,9 +16,9 @@ public class Trabajador {
     private String nif;
     private String nus;
     private String grupoProf;
-    private String grupoCot;
+    private int grupoCot;
     
-    public Trabajador(String nom, String nifT, String nusT, String gProf, String gCot){
+    public Trabajador(String nom, String nifT, String nusT, String gProf, int gCot){
         nombre = nom;
         nif = nifT;
         nus = nusT;
@@ -30,7 +30,7 @@ public class Trabajador {
         nif = "";
         nus = "";
         grupoProf = "";
-        grupoCot = "";
+        grupoCot = 1;
     }
     
     public String getNom(){
@@ -45,7 +45,7 @@ public class Trabajador {
     public String getGProf(){
         return grupoProf;
     }
-    public String getGCot(){
+    public int getGCot(){
         return grupoCot;
     }
     public void setNom(String mNom){
@@ -61,6 +61,8 @@ public class Trabajador {
         grupoProf = SLeer1.datoString(mGProf);
     }
     public void setGCot(String mGCot){
-        grupoCot = SLeer1.datoString(mGCot);
+        do{
+        grupoCot = SLeer1.datoInt(mGCot);
+        }while(grupoCot < 1 || grupoCot > 7);
     }
 }
