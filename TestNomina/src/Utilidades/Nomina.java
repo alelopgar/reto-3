@@ -30,6 +30,7 @@ public class Nomina {
     private double tDeducir = 0;
     private double tPercibir = 0;
     private double BCCC = 0;
+    private double remens;
     private int diaFirma = 0;
     private int mesFirma = 0;
     private int anyoFirma = 0;
@@ -113,11 +114,11 @@ public class Nomina {
             case 6: salarioBase=1125.50 ;break;
             case 7: salarioBase=1125.90 ;break;
          }
+        System.out.println("\tSalario base: "+salarioBase);
      }
-    public double getSalarioBase() { return salarioBase; }
      
     public void pideComplemento() {
-        complemento = SLeer2.datoDouble("¿Qué complementos se incluyen en tu nómina: ");
+        complemento = SLeer2.datoDouble("Inserta 1 para introducir horas extra: : ");
           while (complemento < 0) {
             System.out.println("Has introducido un dato no valido.");
             complemento = SLeer2.datoDouble("¿Qué complementos  se incluyen en tu nómina: ");
@@ -189,10 +190,10 @@ public class Nomina {
     public double getDevengado()  { return tDevengado; }
     public void pideFechaFirma() {
         do {
-            diaFirma = SLeer2.datoInt("Introduce tu fecha de firma");
+            diaFirma = SLeer2.datoInt("Introduce tu fecha de firma: ");
             if (diaFirma < 1 || diaFirma > 31) {
                 System.out.println("Has introducido un día no valido.");
-                diaFirma = SLeer2.datoInt("Introduce tu fecha de firma");
+                diaFirma = SLeer2.datoInt("Introduce tu fecha de firma: ");
             }
         } while (diaFirma < 1 || diaFirma > 31);
         do {
@@ -214,7 +215,12 @@ public class Nomina {
     public void getFecFirma() { System.out.println("La fecha de firma es: "+diaFirma+"/"+mesFirma+"/"+anyoFirma); 
     }
     
-    public void CalcBCCC() {     }
+    public double CalcBCCC() {  
+    remens= salarioBase + complemento/12;
+    BCCC= remens + horasE;
+    
+    return BCCC;
+    }
     
     
     
