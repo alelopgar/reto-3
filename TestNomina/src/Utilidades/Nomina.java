@@ -1,18 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Utilidades;
-
 import Sleer2.SLeer2;
 
 /**
  *
- * @author usuario
+ * @author Diego
  */
 public class Nomina {
-
     private int diaIn = 0;
     private int diaFin = 0;
     private int mesIn = 0;
@@ -32,85 +29,106 @@ public class Nomina {
     private double irpf = 0;
     private double tDeducir = 0;
     private double tPercibir = 0;
+    private double BCCC = 0;
     private int diaFirma = 0;
     private int mesFirma = 0;
     private int anyoFirma = 0;
+    
 
     public Nomina() {
     }
 
-    public void pideFecIn(String dia, String mes, String anyo) {
+    public void pideFecIn() {
         do {
-            diaIn = SLeer2.datoInt(dia);
-            if (diaIn < 1 && diaIn > 31) {
+            diaIn = SLeer2.datoInt("Ingresa el día de incio en la empresa(1-31): ");
+            if (diaIn < 1 || diaIn > 31) {
                 System.out.println("Has introducido un día no valido.");
-                diaIn = SLeer2.datoInt(dia);
+                diaIn = SLeer2.datoInt("Ingresa el día de inicio (1-31)");
             }
-        } while (diaIn < 1 && diaIn > 31);
+        } while (diaIn < 1 || diaIn > 31);
         do {
-            mesIn = SLeer2.datoInt(mes);
-            if (mesIn < 1 && mesIn > 12) {
+            mesIn = SLeer2.datoInt("Ingresa tu mes de inicio (1-12): ");
+            if (mesIn < 1 || mesIn > 12) {
                 System.out.println("Has introducido un mes no valido.");
-                mesIn = SLeer2.datoInt(mes);
+                mesIn = SLeer2.datoInt("Ingresa tu més de inicio (1-12)");
             }
-        } while (mesIn < 1 && mesIn > 12);
+        } while (mesIn < 1 || mesIn > 12);
         do {
-            anyoIn = SLeer2.datoInt(anyo);
-            if (anyoIn < 2020 && anyoIn > 2100) {
+            anyoIn = SLeer2.datoInt("Introduce tu año de inicio en la empresa: ");
+            if (anyoIn < 2020 || anyoIn > 2100) {
                 System.out.println("Has introducido un año no valido.");
-                anyoIn = SLeer2.datoInt(anyo);
+                anyoIn = SLeer2.datoInt("Introduce tu año de inicio en la empresa: ");
             }
 
-        } while (anyoIn < 2020 && anyoIn > 2100);
+        } while (anyoIn < 2020 || anyoIn > 2100);
     }
-
-    public void pideFecFin(String dia, String mes, String anyo) {
+        public int getdiaIn() { return diaIn;  }
+        public int getMesIn() { return mesIn;   }
+        public int getAñoIn() { return anyoIn; }
+        
+    
+    public void pideFecFin() {
         do {
-            diaFin = SLeer2.datoInt(dia);
-            if (diaFin < 1 && diaFin > 31) {
+            diaFin = SLeer2.datoInt("Introduce tu dia de finalización en la empresa(1-31): ");
+            if (diaFin < 1 || diaFin > 31) {
                 System.out.println("Has introducido un día no valido.");
-                diaFin = SLeer2.datoInt(dia);
+                diaFin = SLeer2.datoInt("Introduce tu dia de finalización(1-31): ");
             }
-        } while (diaFin < 1 && diaFin > 31);
+        } while (diaFin < 1 || diaFin > 31);
         do {
-            mesFin = SLeer2.datoInt(mes);
-            if (mesFin < 1 && mesFin > 12) {
+            mesFin = SLeer2.datoInt("Introduce tu mes de finalización(1-12): ");
+            if (mesFin < 1 || mesFin > 12) {
                 System.out.println("Has introducido un mes no valido.");
-                mesFin = SLeer2.datoInt(mes);
+                mesFin = SLeer2.datoInt("Introduce tu mes de finalización(1-12): ");
             }
-        } while (mesFin < 1 && mesFin > 12);
+        } while (mesFin < 1 || mesFin > 12);
         do {
-            anyoFin = SLeer2.datoInt(anyo);
-            if (anyoFin < 2020 && anyoFin > 2100) {
+            anyoFin = SLeer2.datoInt("Introduce tu año de finalización: ");
+            if (anyoFin < 2020 || anyoFin > 2100) {
                 System.out.println("Has introducido un año no valido.");
-                anyoFin = SLeer2.datoInt(anyo);
+                anyoFin = SLeer2.datoInt("Introduce tu año de finalización: ");
             }
 
-        } while (anyoFin < 2020 && anyoFin > 2100);
+        } while (anyoFin < 2020 || anyoFin > 2100);
     }
+    
+    public int getDiaFin() { return diaFin; }
+    public int getMesFin() { return mesFin;   }
+    public int getAñoFin() { return anyoFin;  }
+    
 
     public int calcDias() {
         numDia = 30;
-
         return numDia;
     }
 
-    /*public int calcSalarioBase(String grupo){
-        
-        return salarioBase;
-    }
-     */
-    public void pideComplemento(String mCant) {
-        complemento = SLeer2.datoDouble(mCant);
-        while (complemento < 0) {
+    public void calcSalarioBase(int grupo) {         
+      
+        switch(grupo)  {   
+            case 1: salarioBase=1572.30 ;break;
+            case 2: salarioBase=1303.80 ;break;
+            case 3: salarioBase=1134.30 ;break;
+            case 4: salarioBase=1125.90 ;break;
+            case 5: salarioBase=1125.90 ;break;
+            case 6: salarioBase=1125.50 ;break;
+            case 7: salarioBase=1125.90 ;break;
+         }
+     }
+    public double getSalarioBase() { return salarioBase; }
+     
+    public void pideComplemento() {
+        complemento = SLeer2.datoDouble("¿Qué complementos se incluyen en tu nómina: ");
+          while (complemento < 0) {
             System.out.println("Has introducido un dato no valido.");
-            complemento = SLeer2.datoDouble(mCant);
-        }
+            complemento = SLeer2.datoDouble("¿Qué complementos  se incluyen en tu nómina: ");
+          }
+        
     }
 
     public double getComplemento() {
         return complemento;
     }
+   
 
     public void pideHorasEx(String mCant) {
         horasEx = SLeer2.datoDouble(mCant);
@@ -155,7 +173,8 @@ public class Nomina {
     }
 
     public double calcIRPF() {
-        return irpf;
+        
+        return irpf= 0.2*salarioBase;
     }
 
     public double calcTDeducir() {
@@ -167,29 +186,49 @@ public class Nomina {
         tPercibir = tDevengado - tDeducir;
         return tPercibir;
     }
-
-    public void pideFechaFirma(String dia, String mes, String anyo) {
+    public double getDevengado()  { return tDevengado; }
+    public void pideFechaFirma() {
         do {
-            diaFirma = SLeer2.datoInt(dia);
-            if (diaFirma < 1 && diaFirma > 31) {
+            diaFirma = SLeer2.datoInt("Introduce tu fecha de firma");
+            if (diaFirma < 1 || diaFirma > 31) {
                 System.out.println("Has introducido un día no valido.");
-                diaFirma = SLeer2.datoInt(dia);
+                diaFirma = SLeer2.datoInt("Introduce tu fecha de firma");
             }
-        } while (diaFirma < 1 && diaFirma > 31);
+        } while (diaFirma < 1 || diaFirma > 31);
         do {
-            mesFirma = SLeer2.datoInt(mes);
-            if (mesFirma < 1 && mesFirma > 12) {
+            mesFirma = SLeer2.datoInt("Introduce tu mes de firma: ");
+            if (mesFirma < 1 || mesFirma > 12) {
                 System.out.println("Has introducido un mes no valido.");
-                mesFirma = SLeer2.datoInt(mes);
+                mesFirma = SLeer2.datoInt("Introduce tu mes de firma: ");
             }
-        } while (mesFirma < 1 && mesFirma > 12);
+        } while (mesFirma < 1 || mesFirma > 12);
         do {
-            anyoFirma = SLeer2.datoInt(anyo);
-            if (anyoFirma < 2020 && anyoFirma > 2100) {
+            anyoFirma = SLeer2.datoInt("Introduce tu año de firma: ");
+            if (anyoFirma < 2020 || anyoFirma > 2100) {
                 System.out.println("Has introducido un año no valido.");
-                anyoFirma = SLeer2.datoInt(anyo);
+                anyoFirma = SLeer2.datoInt("Introduce tu mes de firma: ");
             }
 
-        } while (anyoFirma < 2020 && anyoFirma > 2100);
+        } while (anyoFirma < 2020 || anyoFirma > 2100);
     }
+    public void getFecFirma() { System.out.println("La fecha de firma es: "+diaFirma+"/"+mesFirma+"/"+anyoFirma); 
+    }
+    
+    public void CalcBCCC() {     }
+    
+    
+    
+    
+    
 }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+
