@@ -5,6 +5,9 @@
  */
 package testnomina;
 import Sleer2.SLeer2;
+import Utilidades.Empresa;
+import Utilidades.Nomina;
+import Utilidades.Trabajador;
 /**
  *
  * @author usuario
