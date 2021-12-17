@@ -69,7 +69,7 @@ public class SLeer2 {
                 sn = teclado.nextBoolean();
                 leido = true;
             } else {
-                System.err.println("Error, no has introducido un número byte...");
+                System.err.println("Error, no has introducido un boolean...");
                 limpiar();
             }
         } while (leido == false);
