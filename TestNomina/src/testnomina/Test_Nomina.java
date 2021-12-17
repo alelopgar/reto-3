@@ -68,10 +68,10 @@ public class Test_Nomina {
         
         System.out.println("La fecha de inicio es: "+n1.getdiaIn()+"/"+n1.getMesIn()+"/"+n1.getAñoIn());
         System.out.println("La fecha de finalización es: "+n1.getDiaFin()+"/"+n1.getMesFin()+"/"+n1.getAñoFin());
-        System.out.println("\n\tRemuneración de horas extra: "+n1.getHorasEx());
+        System.out.println("\n\tRemuneración de horas extra: "+n1.getHorasEx()+"€");
         System.out.println("\n\tDías trabajados: "+n1.calcDias());
-        System.out.println("\n\tIRPF Descontado: "+n1.calcIRPF());
-        System.out.println("\t\nTotal devengado: "+n1.getDevengado());
+        System.out.println("\n\tIRPF Descontado: "+n1.calcIRPF()+"€");
+        System.out.println("\t\nTotal devengado: "+n1.getDevengado()+ "€");
         System.out.println("\t\nBases de contingencias comunes: "+n1.CalcBCCC());
   
        
